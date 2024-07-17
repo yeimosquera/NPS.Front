@@ -1,0 +1,43 @@
+<app-toolbar></app-toolbar>
+<div class=""><br>
+  <h2>Calificaciones recientes</h2>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Usuario ID Column -->
+    <ng-container matColumnDef="usuarioID">
+      <mat-header-cell *matHeaderCellDef> Usuario </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.nombreUsuario}} </mat-cell>
+    </ng-container>
+  
+    <!-- Calificacion Column -->
+    <ng-container matColumnDef="calificacion">
+      <mat-header-cell *matHeaderCellDef> Calificación </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.calificacion}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="fechaCalificacion">
+      <mat-header-cell *matHeaderCellDef>Fecha Calificacion</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.fechaCalificacion}} </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  
+  </mat-table>
+
+  <br><br><br>
+  <h2>Resultado del NPS</h2>
+  <div class="progress">
+    <div 
+    class="progress-bar" 
+    role="progressbar" 
+    [style.width.%]="progressValue" 
+    [attr.aria-valuenow]="progressValue" 
+    aria-valuemin="0" 
+    aria-valuemax="100">
+    {{ progressValue }}%
+  </div>
+  </div>
+
+  
+</div>
